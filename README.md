@@ -19,7 +19,7 @@ Landing page
 
 
 
-# APP runing Setups
+
 
 
 ## Dependencies
