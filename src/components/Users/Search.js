@@ -10,7 +10,12 @@ class Search extends Component {
   
   onSubmit = e => {
       e.preventDefault();
-      this.props.searchUser(this.state.text)
+      if (this.state.text === '') {
+          this.props.setAlert("Please Enter a Name on the block" , 'danger') 
+      } else {
+          this.props.searchUser(this.state.text)
+          this.setState({text: ''})
+      }
   }
 
   render() {
@@ -31,12 +36,20 @@ class Search extends Component {
             className="btn  btn-block"
             style={{
               width: "90px",
-              backgroundColor: "red",
+              backgroundColor: "green",
               display: "block",
               margin: "auto"
             }}
           />
+        
         </form>
+        <br></br>
+        {this.props.showClear &&   <button className="btn btn-block"    style={{
+              width: "90px",
+              backgroundColor: "red",
+              display: "block",
+              margin: "auto"
+            }} onClick={this.props.clearUser}>Clear</button>}
       </div>
     );
   }
