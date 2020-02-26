@@ -1,14 +1,11 @@
 import React from "react";
 import UserItem from "./UsersItem";
-import Spinner from "../layOut/Spinner.js"
-import PropTypes from 'prop-types'
+import Spinner from "../layOut/Spinner.js";
+import PropTypes from "prop-types";
 
-const Users = ({users, Loading}) => {
-
+const Users = ({ users, Loading }) => {
   if (Loading) {
-    return (
-      <Spinner />
-    )
+    return <Spinner />;
   } else {
     return (
       <div style={userStyle}>
@@ -18,17 +15,16 @@ const Users = ({users, Loading}) => {
       </div>
     );
   }
-}
+};
 Users.proType = {
   users: PropTypes.array.isRequired,
   Loading: PropTypes.bool.isRequired
-}
+};
 
 const userStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
   gridGap: "1rem"
 };
-
 
 export default Users;
